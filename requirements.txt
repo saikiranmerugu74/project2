@@ -1,7 +1,7 @@
 Flask==2.0.1
 Flask-MySQL==1.5.2
 pymysql==1.0.2
-werkzeug==2.0.2
+werkzeug==2.2.2
 requests==2.25.1
 Jinja2==2.10
 Click==7.0
