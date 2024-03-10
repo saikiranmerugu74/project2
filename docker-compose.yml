@@ -1,21 +1,19 @@
-version: "3.7"
+version: '3'
 
 services:
   app:
-    build: ./
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "5000:5000"
-    environment:
-      - DATABASE_URL=mysql://user:password@mysql/dbname
     depends_on:
-      - mysql
-  mysql:
-    image: mysql:5.7
-    volumes:
-      - todo-mysql-data:/var/lib/mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=dbname
+      - db
 
-volumes:
-  todo-mysql-data:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: mydatabase
+    ports:
+      - "3306:3306"

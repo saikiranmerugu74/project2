@@ -1,9 +1,5 @@
-'''
 from flask import Flask, render_template, request, jsonify
 import pymysql
-#from werkzeug.urls import url_quote
-from urllib.parse import quote
-
 
 app = Flask(__name__)
 
@@ -45,28 +41,4 @@ def add_user():
     return render_template('index.html', message='User added successfully')
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
-'''
-
-from flask import Flask, request, render_template
-import mysql.connector
-
-app = Flask(__name__)
-
-@app.route("/", methods=["GET", "POST"])
-def index():
-    if request.method == "POST":
-        data = request.form
-        cnx = mysql.connector.connect(user='user', password='password', host='mysql', database='dbname')
-        cursor = cnx.cursor()
-        query = "INSERT INTO user_details (name, email) VALUES (%s, %s)"
-        cursor.execute(query, (data['name'], data['email']))
-        cnx.commit()
-        cursor.close()
-        cnx.close()
-        return "Success"
-    else:
-        return render_template('index.html')
-
-if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
