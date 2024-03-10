@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, jsonify
 import pymysql
-from werkzeug.urls import url_quote
+#from werkzeug.urls import url_quote
+from urllib.parse import quote
+
 
 app = Flask(__name__)
 
