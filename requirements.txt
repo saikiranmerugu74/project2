@@ -1,10 +1,2 @@
-Flask==2.2.2
-Flask-MySQL==1.5.2
-pymysql==1.0.2
-werkzeug==0.16.1
-requests==2.25.1
-Jinja2==2.10
-Click==7.0
-MarkupSafe==1.1.0
-xmlrunner==1.7.7
-itsdangerous==1.1.0
+flask
+mysql-connector-python
